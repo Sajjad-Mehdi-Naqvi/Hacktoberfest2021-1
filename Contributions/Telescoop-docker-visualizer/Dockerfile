@@ -24,7 +24,7 @@ RUN npm install
 COPY ./client .
 RUN npm run release
 
-FROM debian:11.6-slim
+FROM debian:11.8-slim
 WORKDIR /app
 COPY --from=rust-builder /app/target/release/telescoop  /usr/local/bin/telescoop
 COPY --from=node-builder /app/dist /app/static/
